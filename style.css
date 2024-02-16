@@ -1,0 +1,335 @@
+ /* Global */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+    color: #ededed;
+}
+
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px !important;
+    padding: 0px !important;
+    line-height: 1.4;
+    background-color: #111a28;
+    color: #ededed;
+    position: relative;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+a {
+    text-decoration: none;
+    padding: 4px;
+}
+/*nav*/
+
+.navlogo {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.navlogo img {
+    height: auto;
+    width: 45px;
+    cursor: pointer;
+}
+/* Hamburger Menu */
+.hamburger-menu {
+    display: inline-block;
+    cursor: pointer;
+    padding: 6px;
+    border: 2px solid #ededed;
+    border-radius: 4px;
+    }
+.hamburger-menu:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adjust the shadow color and size as needed */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #ffffff;
+    margin: 6px 0;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu {
+    display: inline-block;
+    position: fixed;
+    top: 60px;
+    right: -1000px;
+    width: 250px;
+    background-color: #333;
+    border: 2px solid #ededed;
+    border-radius: 4px;
+    margin-left: 20px;
+    padding: 50px;
+    cursor: pointer;
+    transition: right 0.3s ease-in-out;
+    z-index: 1; /* Ensure menu is above other elements */
+}
+
+.menu.open {
+    right: 20px; /* Slide in from the right */
+    width: 80%;
+    height: auto;
+    transition: right 0.3s ease-in-out;
+    }
+.lock-scroll {
+    overflow: hidden;
+}
+.menu-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    color: #ededed;
+}
+
+
+/*inside menu*/
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+
+.hidden-link {
+  display: none;
+}
+
+.icon {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover .icon {
+  transform: translateY(-2px);
+}
+
+.menu-item.active .icon {
+  /* Rotate or replace the icon here */
+  /* Consider custom classes for different arrow images */
+  transform: rotate(180deg);
+}
+.menu-item a:hover{
+    font-weight: bolder;
+}
+
+
+/* Landing Div */
+.landing-div {
+    width: 90%;
+    margin: 100px auto;
+    padding: 20px;
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: relative;
+    border-radius: 12px;
+}
+
+.landing-div:hover .button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.5s ease;
+}
+
+.landing-div:hover .button::before {
+    width: 100%;
+    transform: translateX(-50%);
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+/* Card Layout */
+.card {
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.card h2 {
+  border-bottom: none; /* Remove default border */
+  position: relative;
+  cursor: pointer; /* Needed for animations */
+}
+
+.card h2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Adjust y-position as needed */
+  left: 0;
+  width: 100%;
+  height: 2px; /* Adjust height as needed */
+  background-color: #fffdfd; /* Adjust color as needed */
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.card h2:hover::after {
+  opacity: 1;
+}
+
+.card-img {
+    width: 60%;
+    height: auto;
+    transition: 0.3s;
+    border-radius: 12px;
+}
+
+.card img:hover  {
+    transform: scale(.98);
+}
+.hidden-text {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-in-out;
+  position:sticky;
+  bottom: 0; /* Position at the bottom */
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(0 0 0 / 0.5); /* Semi-transparent background */
+  color: white;
+  text-align: center;
+}
+
+.card :hover .hidden-text {
+  opacity: 1; /* Show text on hover */
+}
+
+
+
+/*overlay img*/
+.profile-photo{
+    clip-path: circle();
+    width: 60px;
+    height: auto;
+
+}
+.heart-icon {
+    font-size: 25px; 
+}
+.share-icon{
+    font-size: 25px;
+}
+.download-icon{
+    font-size: 25px;
+}
+.card-content {
+    padding: 10px;
+    background:black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.card-content h3 {
+     margin: 0;
+}
+
+.like-share-buttons {
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+}
+
+.like-share-buttons button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    color: black;
+    font-weight: 700;
+}
+
+.like-share-buttons button:hover {
+    background-color: #74c44f;
+    border: 1px solid #040303;
+    color: #ededed;
+}
+.like-share-buttons button {
+  position: relative;
+}
+
+.like-share-buttons button::after {
+  content: url(logo.svg); /* Your icon image */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.like-share-buttons button:hover::after {
+  opacity: 1;
+}
+.like-share-buttons button:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.like-share-buttons button:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*footer*/
+footer{
+margin-top: 30px;
+border-top: 4px solid tomato;
+}
